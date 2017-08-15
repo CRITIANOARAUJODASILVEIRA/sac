@@ -1,0 +1,69 @@
+<html ng-app="sacApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Login</title>
+		<script src="app/public/js/angular.min.js"></script>
+		<script src="app/controllers/login.js"></script>
+
+		<link rel="stylesheet" href="node_modules/material-design-lite/material.min.css">
+		<script src="node_modules/material-design-lite/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="app/public/css/login.css">
+	</head>
+	<body ng-controller="LoginCtrl as ctrl">
+
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+			<header class="mdl-layout__header">
+			    <div class="mdl-layout__header-row">
+			      <!-- Title -->
+			      <span class="mdl-layout-title">Serviço de Atendimento ao Cliente</span>
+			      <!-- Add spacer, to align navigation to the right -->
+			      <div class="mdl-layout-spacer"></div>
+			      <!-- Navigation. We hide it in small screens. -->
+			      <nav class="mdl-navigation mdl-layout--large-screen-only">
+			        <a class="mdl-navigation__link" href="">Login</a>
+			        <a class="mdl-navigation__link" href="">Estatísticas</a>
+			        <a class="mdl-navigation__link" href="">Contato</a>
+			        <a class="mdl-navigation__link" href="">Sobre</a>
+			      </nav>
+			    </div>
+			</header>
+
+			<div class="mdl-layout__drawer">
+			    <span class="mdl-layout-title">SAC</span>
+			    <nav class="mdl-navigation">
+			      <a class="mdl-navigation__link" href="">Login</a>
+			      <a class="mdl-navigation__link" href="">Estatísticas</a>
+			      <a class="mdl-navigation__link" href="">Contato</a>
+			      <a class="mdl-navigation__link" href="">Sobre</a>
+			    </nav>
+			</div>
+
+			<main class="mdl-layout__content">			
+				<form ng-submit="ctrl.submit()" name="formLogin">
+					<div class="mdl-card">
+						<div class="mdl-card__title">
+					    	<h2 class="mdl-card__title-text">Login</h2>
+					  	</div>
+						<div class="mdl-card__supporting-text">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input type="text" ng-model="ctrl.operador.login" required class="mdl-textfield__input">
+								<span ng-show="formLogin.operador.login.$error.required">Este campo é requirido</span>
+								<label class="mdl-textfield__label" for="sample3">Usuário...</label>				
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input type="password" ng-model="ctrl.operador.senha" required class="mdl-textfield__input">
+								<label class="mdl-textfield__label" for="sample3">Senha...</label>				
+							</div>
+						</div>
+						<div class="mdl-card__actions">
+							<input type="submit" value="Entrar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-disabled="formLogin.$invalid">
+						</div>
+					</div>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>
